@@ -3,6 +3,7 @@
 const express = require('express')
 const app = express()
 const db = require('./db')
+require("dotenv").config()
 
 const bodyParser= require('body-parser')  // very important step to follow the body parder tp ghet the user data 
 app.use(bodyParser.json()) //req.data
@@ -25,7 +26,9 @@ app.get("/butterroti",(req,res)=>{
     res.send("yes we will bring this to you")
 })
 
-app.listen(3000,()=>{
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT,()=>{
     console.log("the server is hostd in our local computer");
     
 })
